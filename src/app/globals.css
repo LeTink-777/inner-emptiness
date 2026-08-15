@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0D0F14;
+  --card: #161A21;
+  --elev: #1F252E;
+  --ink: #EDF0F5;
+  --muted: #939DAD;
+  --accent: #C98A3E;
+  --accent2: #6FA8C7;
+  --accent3: #7E8899;
+  --line: rgba(201, 138, 62, 0.22);
+
+  --font-display-stack: var(--ff-display), Georgia, "Times New Roman", serif;
+  --font-body-stack: var(--ff-body), system-ui, -apple-system, sans-serif;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-card: var(--card);
+  --color-elev: var(--elev);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent2: var(--accent2);
+  --color-accent3: var(--accent3);
+  --color-line: var(--line);
+
+  --font-display: var(--font-display-stack);
+  --font-body: var(--font-body-stack);
+}
+
+* {
+  border-color: var(--line);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body-stack);
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+input,
+select,
+button,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+/* Dates and money read better without the browser's default tabular jitter. */
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
